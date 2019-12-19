@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+##RefNamespace##
+
+namespace ##Namespace##
+{
+   
+    /// <summary>
+    /// ##Description##
+    /// </summary>
+    /// <remarks>继续BaseStruct类:允许无身份认证的请求;AuthorizeAction:需要身份认证的请求</remarks>
+    public class Action##ID## : AuthorizeAction
+    {
+        public Action##ID##(ActionGetter actionGetter)
+            : base((short)##ID##, actionGetter)
+        {
+            
+        }
+
+        /// <summary>
+        /// 检查的Action是否需要授权访问
+        /// </summary>
+        protected override bool IgnoreActionId
+        {
+            get{ return true; }
+        }
+
+        /// <summary>
+        /// 客户端请求的参数较验
+        /// </summary>
+        /// <returns>false:中断后面的方式执行并返回Error</returns>
+        public override bool GetUrlElement()
+        {
+            byte[] data = (byte[])actionGetter.GetMessage();
+            //使用protobuf反序列化
+            //T t = ProtoBufUtils.Deserialize<T>(data);
+        }
+
+        /// <summary>
+        /// 业务逻辑处理
+        /// </summary>
+        /// <returns>false:中断后面的方式执行并返回Error</returns>
+        public override bool TakeAction()
+        {
+            //在这里处理业务
+            return true;
+        }
+
+        /// <summary>
+        /// 下发给客户的包结构数据
+        /// </summary>
+        public override byte[] BuildResponsePack()
+        {
+            //ProtoBufUtils.Serialize(resutObject);
+            return new byte[0];
+        }
+
+    }
+}

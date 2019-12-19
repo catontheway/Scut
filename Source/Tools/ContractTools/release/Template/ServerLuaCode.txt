@@ -1,0 +1,21 @@
+﻿
+Action##ID## ={}
+
+function Action##ID##:getUrlElement(actionGetter, parent)
+    local urlParam = {}
+##getUrlElement##
+    return urlParam
+end
+
+function Action##ID##:takeAction(urlParam, parent)
+    local actionResult = {}
+    actionResult.Result = true
+
+    return actionResult
+end
+
+
+function Action##ID##:buildPacket(writer, urlParam, actionResult)
+##buildPacket##
+    return true
+end
