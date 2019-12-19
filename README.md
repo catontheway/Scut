@@ -1,7 +1,5 @@
 # README
 
-[![Build Status](http://scutgame.com/images/passing.png?branch=6.7.9.11)](http://scutgame.com/download/)
-
 
 ## Scut是什么?
 
